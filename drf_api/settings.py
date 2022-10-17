@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'multiselectfield',
+    'rest_framework',
 
     'profiles',
 ]
