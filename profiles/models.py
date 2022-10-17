@@ -1,49 +1,19 @@
 from django.db import models
 from django.db.models.signals import post_save
 from django.contrib.auth.models import User
+from multiselectfield import MultiSelectField
 
 
 class Profile(models.Model):
     """
     A class for the Profile model
     """
-    owner = models.OneToOneField(User, on_delete=models.CASCADE)
-    creation_date = models.DateTimeField(auto_now_add=True)
-    updated_date = models.DateTimeField(auto_now=True)
-    username = models.CharField(max_length=75, blank=True)
-    name = models.CharField(max_length=75, blank=True)
-    district = models.CharField(
-        max_length=50,
-        choices=Districts.choices,
-        default=Districts.MITTE,
-    )
-    languages = models.CharField(
-        max_length=20,
-        choices=Languages.choices,
-        default=Languages.ENGLISH,
-    )
-    music = models.CharField(
-        max_length=20,
-        choices=Music.choices,
-        default=Music.POP,
-    )
-    sports = models.CharField(
-        max_length=20,
-        choices=Music.choices,
-        default=Music.POP,
-    )
-    description = models.TextField(blank=True)
-    image = models.ImageField(
-        upload_to='images/', default='../default_profile_image-01_iotmha'
-    )
-
-    class Meta:
-        """
-        Orders profiles by creation date
-        """
-        ordering = ['-creation_date']
 
     class Languages(models.TextChoices):
+        """
+        A class for the Languages model
+        Contains all the language options users can pick from
+        """
         ENGLISH = 'English'
         GERMAN = 'German'
         FRENCH = 'French'
@@ -73,8 +43,13 @@ class Profile(models.Model):
         GREEK = 'Greek'
         URDU = 'Urdu'
         HINDI = 'Hindi'
+        OTHER = 'Other'
 
     class Districts(models.TextChoices):
+        """
+        A class for the Districts model
+        Contains all the district options users can pick from
+        """
         FRIEDRICHSHAINKREUZBERG = 'Friedrichshain-Kreuzberg'
         LICHTENBERG = 'Lichtenberg'
         MARZAHNHELLERSDORF = 'Marzahn-Hellersdorf'
@@ -88,6 +63,10 @@ class Profile(models.Model):
         TREPTOWKOPENICK = 'Treptow-Köpenick'
 
     class Music(models.TextChoices):
+        """
+        A class for the Music model
+        Contains all the music options users can pick from
+        """
         SIXTIES = '60s'
         SEVENTIES = '70s'
         EIGHTIES = '80s'
@@ -124,8 +103,14 @@ class Profile(models.Model):
         KPOP = 'K-Pop'
         JPOP = 'J-Pop'
         LATIN = 'Latin'
+        NONE = 'None'
+        OTHER = 'Other'
 
     class Sports(models.TextChoices):
+        """
+        A class for the Sports model
+        Contains all the sports options users can pick from
+        """
         FOOTBALL = 'Football'
         BASKETBALL = 'Basketball'
         TENNIS = 'Tennis'
@@ -163,10 +148,48 @@ class Profile(models.Model):
         AIKIDO = 'Aikido'
         FENCING = 'Fencing'
         GOLF = 'Golf'
-        BOWLING = 'Bowling'
         DANCING = 'Dancing'
         FISHING = 'Fishing'
         ROWING = 'Rowing'
+        FITNESS = 'Fitness'
+        NONE = 'None'
+        OTHER = 'Other'
+
+    owner = models.OneToOneField(User, on_delete=models.CASCADE)
+    creation_date = models.DateTimeField(auto_now_add=True)
+    updated_date = models.DateTimeField(auto_now=True)
+    username = models.CharField(max_length=75, blank=True)
+    name = models.CharField(max_length=75, blank=True)
+    district = models.CharField(
+        max_length=50,
+        choices=Districts.choices,
+        default=Districts.MITTE,
+    )
+    languages = MultiSelectField(
+        max_length=20,
+        choices=Languages.choices,
+        default=Languages.ENGLISH,
+    )
+    music = MultiSelectField(
+        max_length=20,
+        choices=Music.choices,
+        default=Music.NONE
+    )
+    sports = MultiSelectField(
+        max_length=20,
+        choices=Sports.choices,
+        default=Sports.NONE,
+    )
+    description = models.TextField(blank=True)
+    image = models.ImageField(
+        upload_to='images/', default='../default_profile_image-01_iotmha'
+    )
+
+    class Meta:
+        """
+        Orders profiles by creation date
+        """
+        ordering = ['-creation_date']
 
     def __str__(self):
         """
@@ -180,4 +203,5 @@ def create_profile(sender, instance, created, **kwargs):
         Profile.objects.create(owner=instance)
 
 
+# Calls the create_profile function on user creation
 post_save.connect(create_profile, sender=User)
