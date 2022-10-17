@@ -158,7 +158,6 @@ class Profile(models.Model):
     owner = models.OneToOneField(User, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
-    username = models.CharField(max_length=75, blank=True)
     name = models.CharField(max_length=75, blank=True)
     district = models.CharField(
         max_length=50,
@@ -195,7 +194,7 @@ class Profile(models.Model):
         """
         Overrides default name of Profile objects to the users' username
         """
-        return f"{self.username}'s profile"
+        return f"{self.owner.username}'s profile"
 
 
 def create_profile(sender, instance, created, **kwargs):
