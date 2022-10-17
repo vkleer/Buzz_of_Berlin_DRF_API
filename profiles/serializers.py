@@ -10,4 +10,5 @@ class ProfileSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'creation_date', 'updated_date', 'name',
             'district', 'languages', 'music', 'sports', 'description',
+            'image',
         ]
