@@ -13,6 +13,24 @@ class PostSerializer(serializers.ModelSerializer):
         source='owner.profile.image.url'
     )
 
+    def validate_image(self, value):
+        """
+        Validates if uploaded images meet the set constraints
+        """
+        if value.size > 1024 * 1024 * 2:
+            raise serializers.ValidationError(
+                'Image size exceeds 2MB - please upload a smaller image.'
+            )
+        if value.image.height > 4096:
+            raise serializers.ValidationError(
+                'Image height exceeds 4096px - please upload a smaller image.'
+            )
+        if value.image.width > 4096:
+            raise serializers.ValidationError(
+                'Image width exceeds 4096px - please upload a smaller image.'
+            )
+        return value
+
     def get_is_owner(self, obj):
         """
         Sets the is_owner field equal to True if the logged in
