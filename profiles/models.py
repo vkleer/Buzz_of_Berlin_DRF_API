@@ -50,17 +50,17 @@ class Profile(models.Model):
         A class for the Districts model
         Contains all the district options users can pick from
         """
-        FRIEDRICHSHAINKREUZBERG = 'Friedrichshain-Kreuzberg'
+        FRIEDRICHSHAIN_KREUZBERG = 'Friedrichshain-Kreuzberg'
         LICHTENBERG = 'Lichtenberg'
-        MARZAHNHELLERSDORF = 'Marzahn-Hellersdorf'
+        MARZAHN_HELLERSDORF = 'Marzahn-Hellersdorf'
         MITTE = 'Mitte'
         NEUKOLLN = 'Neukölln'
         PANKOW = 'Pankow'
         REINICKENDORF = 'Reinickendorf'
         SPANDAU = 'Spandau'
-        STEGLITZZEHLENDORF = 'Steglitz-Zehlendorf'
-        TEMPELHOFSCHONEBERG = 'Tempelhof-Schöneberg'
-        TREPTOWKOPENICK = 'Treptow-Köpenick'
+        STEGLITZ_ZEHLENDORF = 'Steglitz-Zehlendorf'
+        TEMPELHOF_SCHONEBERG = 'Tempelhof-Schöneberg'
+        TREPTOW_KOPENICK = 'Treptow-Köpenick'
 
     class Music(models.TextChoices):
         """
@@ -183,7 +183,7 @@ class Profile(models.Model):
 
     class Meta:
         """
-        Orders profiles by creation date
+        Orders Profile objects by creation date
         """
         ordering = ['-creation_date']
 

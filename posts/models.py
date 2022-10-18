@@ -24,7 +24,7 @@ class Post(models.Model):
 
     class Meta:
         """
-        Orders profiles by creation date
+        Orders Post objects by creation date
         """
         ordering = ['-creation_date']
 
