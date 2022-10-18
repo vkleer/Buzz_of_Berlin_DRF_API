@@ -10,6 +10,10 @@ class ProfileSerializer(serializers.ModelSerializer):
     is_owner = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
+        """
+        Sets the is_owner field equal to True if the logged in
+        user is the object owner, otherwise it's set to False
+        """
         request = self.context['request']
         return request.user == obj.owner
 
