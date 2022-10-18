@@ -17,7 +17,7 @@ class Post(models.Model):
         max_length=50,
         choices=Districts.choices,
     )
-    content = models.TextField(blank=True)
+    caption = models.TextField(blank=True)
     image = models.ImageField(
         upload_to='images/', default='../default_image-02_ddnubk', blank=True
     )
