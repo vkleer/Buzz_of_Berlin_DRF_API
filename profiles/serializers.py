@@ -1,4 +1,4 @@
-from rest_framework import serializers
+from rest_framework import serializers, fields
 from .models import Profile
 
 
@@ -15,3 +15,7 @@ class ProfileSerializer(serializers.ModelSerializer):
             'district', 'languages', 'music', 'sports', 'description',
             'image',
         ]
+
+    languages = fields.MultipleChoiceField(choices=Profile.Languages)
+    music = fields.MultipleChoiceField(choices=Profile.Music)
+    sports = fields.MultipleChoiceField(choices=Profile.Sports)
