@@ -1,5 +1,6 @@
-from rest_framework import serializers, fields
+from rest_framework import serializers
 from .models import Post
+from profiles.models import Profile
 
 
 class PostSerializer(serializers.ModelSerializer):
@@ -8,8 +9,8 @@ class PostSerializer(serializers.ModelSerializer):
     """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
-    profile_id = serializers.SerializerMethodField(source='owner.profile.id')
-    profile_image = serializers.SerializerMethodField(
+    profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    profile_image = serializers.ReadOnlyField(
         source='owner.profile.image.url'
     )
 
@@ -43,7 +44,5 @@ class PostSerializer(serializers.ModelSerializer):
         model = Post
         fields = [
             'id', 'owner', 'creation_date', 'updated_date', 'title',
-            'district', 'content', 'is_owner',
+            'district', 'caption', 'is_owner', 'profile_id', 'profile_image',
         ]
-
-    district = fields.MultipleChoiceField(choices=Profile.Districts)
