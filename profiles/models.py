@@ -199,7 +199,7 @@ class Profile(models.Model):
 
 def create_profile(sender, instance, created, **kwargs):
     """
-    Created a new profile on user creation
+    Created a new Profile object on user creation
     """
     if created:
         Profile.objects.create(owner=instance)
