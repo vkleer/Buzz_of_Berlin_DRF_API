@@ -165,17 +165,14 @@ class Profile(models.Model):
         default=Districts.MITTE,
     )
     languages = MultiSelectField(
-        max_length=20,
         choices=Languages.choices,
         default=Languages.ENGLISH,
     )
     music = MultiSelectField(
-        max_length=20,
         choices=Music.choices,
         default=Music.NONE
     )
     sports = MultiSelectField(
-        max_length=20,
         choices=Sports.choices,
         default=Sports.NONE,
     )
