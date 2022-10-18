@@ -55,7 +55,6 @@ class Recommendation(models.Model):
         max_length=50,
         choices=Districts.choices,
     )
-    link_to_google_maps
     content = models.TextField(blank=True)
     image = models.ImageField(
         upload_to='images/', default='../default_image-02_ddnubk', blank=True
