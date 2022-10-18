@@ -1,6 +1,7 @@
 from django.db import models
 from django.contrib.auth.models import User
 from profiles.models import Profile
+from mapbox_location_field.models import LocationField
 
 
 class Recommendation(models.Model):
@@ -43,6 +44,7 @@ class Recommendation(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     location_name = models.CharField(max_length=255, unique=True)
+    location_mapbox = LocationField()
     entry_fee = models.CharField(
         max_length=15,
         choices=EntryFees.choices,
