@@ -30,7 +30,7 @@ class Follower(models.Model):
 
     def __str__(self):
         """
-        Overrides default name of Follower objects to the owner and 
+        Overrides default name of Follower objects to the owner and
         followed
         """
         return f'${self.owner} ${self.followed}'
