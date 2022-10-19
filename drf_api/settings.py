@@ -53,6 +53,7 @@ INSTALLED_APPS = [
     'multiselectfield',
     'mapbox_location_field',
     'rest_framework',
+    'django_filters',
 
     'profiles',
     'posts',
