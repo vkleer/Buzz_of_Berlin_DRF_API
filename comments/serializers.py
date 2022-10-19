@@ -4,7 +4,7 @@ from .models import Comment
 
 class CommentSerializer(serializers.ModelSerializer):
     """
-    A class for the PostSerializer model serializer
+    A class for the CommentSerializer model serializer
     """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
@@ -22,7 +22,10 @@ class CommentSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     class Meta:
-        model = Post
+        """
+        Returns the fields to be displayed from the Comment model
+        """
+        model = Comment
         fields = [
             'id', 'owner', 'is_owner', 'profile_id', 'profile_image', 'post',
             'created_at', 'updated_at', 'content',
