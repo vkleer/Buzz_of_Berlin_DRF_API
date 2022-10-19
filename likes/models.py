@@ -5,8 +5,9 @@ from posts.models import Post
 
 class Like(models.Model):
     """
-    Like model, related to User and Post
-    'unique_together' ensures a user can't like the same post twice
+    A class for the Like model.
+    The model is related to User and Post.
+    'unique_together' ensures a user can't like the same post twice.
     """
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
