@@ -25,7 +25,7 @@ class ProfileSerializer(serializers.ModelSerializer):
     def get_following_id(self, obj):
         """
         Checks if the logged in user is following any other profiles.
-        Sets the following_id field equal to the corresponding following
+        Sets the following_id field equal to the corresponding Follower
         instance
         """
         user = self.context['request'].user
