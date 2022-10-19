@@ -17,7 +17,7 @@ class Comment(models.Model):
         """
         Orders Comment objects by creation date
         """
-        ordering = ['-created_at']
+        ordering = ['-creation_date']
 
     def __str__(self):
         """
