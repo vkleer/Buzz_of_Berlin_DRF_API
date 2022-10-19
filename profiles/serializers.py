@@ -18,6 +18,9 @@ class ProfileSerializer(serializers.ModelSerializer):
         return request.user == obj.owner
 
     class Meta:
+        """
+        Returns the fields to be displayed from the Profile model
+        """
         model = Profile
         fields = [
             'id', 'owner', 'creation_date', 'updated_date', 'name',
