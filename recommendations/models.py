@@ -70,6 +70,7 @@ class Recommendation(models.Model):
 
     def __str__(self):
         """
-        Overrides default name of Recommendation objects to the Recommendation id and title
+        Overrides default name of Recommendation objects to the Recommendation
+        id and title
         """
         return f'{self.id} {self.title}'
