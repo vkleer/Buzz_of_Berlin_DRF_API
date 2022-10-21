@@ -1,3 +1,4 @@
+from django.contrib.humanize.templatetags.humanize import naturaltime
 from rest_framework import serializers
 from .models import Comment
 
@@ -12,6 +13,8 @@ class CommentSerializer(serializers.ModelSerializer):
     profile_image = serializers.ReadOnlyField(
         source='owner.profile.image.url'
     )
+    creation_date = serializers.SerializerMethodField()
+    updated_date = serializers.SerializerMethodField()
 
     def get_is_owner(self, obj):
         """
@@ -20,6 +23,20 @@ class CommentSerializer(serializers.ModelSerializer):
         """
         request = self.context['request']
         return request.user == obj.owner
+
+    def get_creation_date(self, obj):
+        """
+        Sets the creation_date field to a naturaltime, e.g. '4 hours
+        ago'
+        """
+        return naturaltime(obj.creation_date)
+
+    def get_updated_date(self, obj):
+        """
+        Sets the updated_date field to a naturaltime, e.g. '4 hours
+        ago'
+        """
+        return naturaltime(obj.updated_date)
 
     class Meta:
         """
