@@ -9,7 +9,7 @@ class EventList(generics.ListCreateAPIView):
     A class for the EventList generic API view.
     List events or create an event if logged in.
     """
-    serializer_class = RecommendationSerializer
+    serializer_class = EventSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Event.objects.all()
 
