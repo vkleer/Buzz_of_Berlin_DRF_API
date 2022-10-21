@@ -14,6 +14,7 @@ class RecommendationList(generics.ListCreateAPIView):
     serializer_class = RecommendationSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Recommendation.objects.annotate(
+        comments_count=Count('comment', distinct=True),
         likes_count=Count('likes', distinct=True),
     ).order_by('-creation_date')
     filter_backends = [
@@ -27,6 +28,7 @@ class RecommendationList(generics.ListCreateAPIView):
         'owner__profile',
     ]
     search_fields = [
+        'comments_count',
         'owner__username',
         'title',
     ]
@@ -50,5 +52,6 @@ class RecommendationDetail(generics.RetrieveUpdateDestroyAPIView):
     serializer_class = RecommendationSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Recommendation.objects.annotate(
+        comments_count=Count('comment', distinct=True),
         likes_count=Count('likes', distinct=True),
     ).order_by('-creation_date')

@@ -9,12 +9,12 @@ class RecommendationSerializer(serializers.ModelSerializer):
     """
     owner = serializers.ReadOnlyField(source='owner.username')
     is_owner = serializers.SerializerMethodField()
-    # profile_id = serializers.ReadOnlyField(source='owner.profile.id')
-    # profile_image = serializers.ReadOnlyField(
-    #     source='owner.profile.image.url'
-    # )
+    profile_id = serializers.ReadOnlyField(source='owner.profile.id')
+    profile_image = serializers.ReadOnlyField(
+        source='owner.profile.image.url'
+    )
     like_id = serializers.SerializerMethodField()
-    # comments_count = serializers.ReadOnlyField()
+    comments_count = serializers.ReadOnlyField()
     likes_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
@@ -66,4 +66,5 @@ class RecommendationSerializer(serializers.ModelSerializer):
             'id', 'owner', 'creation_date', 'updated_date', 'title',
             'district', 'location_name', 'location_mapbox', 'entry_fee',
             'price', 'content', 'is_owner', 'like_id', 'likes_count',
+            'comments_count', 'profile_id', 'profile_image',
         ]
