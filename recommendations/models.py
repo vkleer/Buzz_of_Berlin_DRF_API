@@ -46,7 +46,7 @@ class Recommendation(models.Model):
     location_name = models.CharField(max_length=255, unique=True)
     location_mapbox = LocationField()
     entry_fee = models.CharField(
-        max_length=15,
+        max_length=17,
         choices=EntryFees.choices,
     )
     price = models.CharField(
