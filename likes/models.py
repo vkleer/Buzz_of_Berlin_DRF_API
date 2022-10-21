@@ -26,7 +26,7 @@ class Like(models.Model):
         Orders Like objects by creation date
         """
         ordering = ['-creation_date']
-        unique_together = ['owner', 'post', 'recommendation']
+        unique_together = ['owner', 'post'], ['owner', 'recommendation']
 
     def __str__(self):
         """
