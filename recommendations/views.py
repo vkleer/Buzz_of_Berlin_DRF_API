@@ -13,11 +13,31 @@ class RecommendationList(generics.ListCreateAPIView):
     """
     serializer_class = RecommendationSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Recommendation.objects.all()
+    queryset = Recommendation.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+    ).order_by('-creation_date')
+    filter_backends = [
+        filters.OrderingFilter,
+        filters.SearchFilter,
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'owner__followed__owner__profile',
+        'likes__owner__profile',
+        'owner__profile',
+    ]
+    search_fields = [
+        'owner__username',
+        'title',
+    ]
+    ordering_fields = [
+        'likes_count',
+        'likes__creation_date',
+    ]
 
     def perform_create(self, serializer):
         """
-        Asociates the post with the logged in user
+        Asociates the recommendation with the logged in user
         """
         serializer.save(owner=self.request.user)
 
@@ -29,4 +49,6 @@ class RecommendationDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = RecommendationSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Recommendation.objects.all()
+    queryset = Recommendation.objects.annotate(
+        likes_count=Count('likes', distinct=True),
+    ).order_by('-creation_date')

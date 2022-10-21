@@ -13,9 +13,9 @@ class RecommendationSerializer(serializers.ModelSerializer):
     # profile_image = serializers.ReadOnlyField(
     #     source='owner.profile.image.url'
     # )
-    # like_id = serializers.SerializerMethodField()
+    like_id = serializers.SerializerMethodField()
     # comments_count = serializers.ReadOnlyField()
-    # likes_count = serializers.ReadOnlyField()
+    likes_count = serializers.ReadOnlyField()
 
     def validate_image(self, value):
         """
@@ -43,19 +43,19 @@ class RecommendationSerializer(serializers.ModelSerializer):
         request = self.context['request']
         return request.user == obj.owner
 
-    # def get_like_id(self, obj):
-    #     """
-    #     Checks if the logged in user has liked any recommendations.
-    #     Sets the like_id field equal to the corresponding Like
-    #     instance
-    #     """
-    #     user = self.context['request'].user
-    #     if user.is_authenticated:
-    #         like = Like.objects.filter(
-    #             owner=user, recommendation=obj
-    #         ).first()
-    #         return like.id if like else None
-    #     return None
+    def get_like_id(self, obj):
+        """
+        Checks if the logged in user has liked any recommendations.
+        Sets the like_id field equal to the corresponding Like
+        instance
+        """
+        user = self.context['request'].user
+        if user.is_authenticated:
+            like = Like.objects.filter(
+                owner=user, recommendation=obj
+            ).first()
+            return like.id if like else None
+        return None
 
     class Meta:
         """
@@ -65,5 +65,5 @@ class RecommendationSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'creation_date', 'updated_date', 'title',
             'district', 'location_name', 'location_mapbox', 'entry_fee',
-            'price', 'content', 'is_owner',
+            'price', 'content', 'is_owner', 'like_id', 'likes_count',
         ]
