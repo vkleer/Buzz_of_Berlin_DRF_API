@@ -22,10 +22,10 @@ class Event(models.Model):
     creation_date = models.DateTimeField(auto_now_add=True)
     updated_date = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
-    date = models.DateField()
-    start_time = models.TimeField(validators=[
+    date = models.DateField(validators=[
         MinValueValidator(datetime.date.today)
     ])
+    start_time = models.TimeField()
     ticket_price = models.IntegerField(validators=[
         MinValueValidator(0),
         MaxValueValidator(100)
