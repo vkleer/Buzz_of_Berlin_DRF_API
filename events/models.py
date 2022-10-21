@@ -4,6 +4,7 @@ from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
 from profiles.models import Profile
 from recommendations.models import Recommendation
+from mapbox_location_field.models import LocationField
 
 
 class Event(models.Model):
@@ -34,6 +35,8 @@ class Event(models.Model):
         max_length=50,
         choices=Districts.choices
     )
+    location_name = models.CharField(max_length=255)
+    location_mapbox = LocationField()
     content = models.TextField(blank=True)
     image = models.ImageField(
         upload_to='images/', default='../default_image-02_ddnubk', blank=True
