@@ -15,7 +15,7 @@ class Post(models.Model):
     title = models.CharField(max_length=255)
     district = models.CharField(
         max_length=50,
-        choices=Districts.choices,
+        choices=Districts.choices
     )
     caption = models.TextField(blank=True)
     image = models.ImageField(

@@ -162,11 +162,11 @@ class Profile(models.Model):
     district = models.CharField(
         max_length=50,
         choices=Districts.choices,
-        default=Districts.MITTE,
+        default=Districts.MITTE
     )
     languages = MultiSelectField(
         choices=Languages.choices,
-        default=Languages.ENGLISH,
+        default=Languages.ENGLISH
     )
     music = MultiSelectField(
         choices=Music.choices,
@@ -174,7 +174,7 @@ class Profile(models.Model):
     )
     sports = MultiSelectField(
         choices=Sports.choices,
-        default=Sports.NONE,
+        default=Sports.NONE
     )
     description = models.TextField(blank=True)
     image = models.ImageField(

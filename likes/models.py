@@ -13,11 +13,11 @@ class Like(models.Model):
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(
         Post, on_delete=models.CASCADE, related_name='likes',
-        default=None, null=True,
+        default=None, null=True
     )
     recommendation = models.ForeignKey(
         Recommendation, on_delete=models.CASCADE, related_name='likes',
-        default=None, null=True,
+        default=None, null=True
     )
     creation_date = models.DateTimeField(auto_now_add=True)
 
