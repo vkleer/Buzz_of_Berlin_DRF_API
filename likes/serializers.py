@@ -15,12 +15,12 @@ class LikeSerializer(serializers.ModelSerializer):
         """
         model = Like
         fields = [
-            'id', 'owner', 'creation_date', 'post',
+            'id', 'owner', 'creation_date', 'post', 'recommendation',
         ]
 
     def create(self, validated_data):
         """
-        Handles the unique constraint on 'owner' and 'post'
+        Handles the unique constraint on 'owner', 'post' and 'recommendation'
         """
         try:
             return super().create(validated_data)
