@@ -44,7 +44,6 @@ class Recommendation(models.Model):
     updated_date = models.DateTimeField(auto_now=True)
     title = models.CharField(max_length=255)
     location_name = models.CharField(max_length=255, unique=True)
-    location_mapbox = LocationField()
     entry_fee = models.CharField(
         max_length=17,
         choices=EntryFees.choices,

@@ -64,7 +64,7 @@ class RecommendationSerializer(serializers.ModelSerializer):
         model = Recommendation
         fields = [
             'id', 'owner', 'creation_date', 'updated_date', 'title',
-            'district', 'location_name', 'location_mapbox', 'entry_fee',
+            'district', 'location_name', 'entry_fee',
             'price', 'content', 'image', 'is_owner', 'like_id',
             'likes_count', 'comments_count', 'profile_id', 'profile_image',
         ]
