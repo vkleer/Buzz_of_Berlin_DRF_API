@@ -53,9 +53,6 @@ REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'drf_api.serializers.CurrentUserSerializer'
 }
 
-# Mapbox API key
-MAPBOX_KEY = os.environ.get('MAPBOX_KEY')
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
@@ -102,7 +99,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'cloudinary',
     'multiselectfield',
-    'mapbox_location_field',
     'rest_framework',
     'django_filters',
     'rest_framework.authtoken',
