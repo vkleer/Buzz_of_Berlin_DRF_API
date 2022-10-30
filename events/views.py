@@ -12,6 +12,13 @@ class EventList(generics.ListCreateAPIView):
     serializer_class = EventSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Event.objects.all()
+    filter_backends = [
+        DjangoFilterBackend,
+    ]
+    filterset_fields = [
+        'owner__followed__owner__profile',
+        'owner__profile',
+    ]
 
     def perform_create(self, serializer):
         """
