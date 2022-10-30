@@ -25,6 +25,6 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     A class for the EventDetail generic API view.
     Retrieve an event and edit or delete it if you own it.
     """
-    serializer_class = EventSerializer()
+    serializer_class = EventSerializer
     permission_classes = [IsOwnerOrReadOnly]
     queryset = Event.objects.all()
