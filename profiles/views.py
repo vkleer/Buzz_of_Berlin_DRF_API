@@ -10,7 +10,7 @@ class ProfileList(generics.ListAPIView):
     """
     A class for the ProfileList generic API view.
     List all profiles.
-    No create view required since profile creation is handled by 
+    No create view required since profile creation is handled by
     Django signals.
     """
     queryset = Profile.objects.annotate(
