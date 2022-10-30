@@ -15,6 +15,8 @@ class ProfileList(generics.ListAPIView):
     """
     queryset = Profile.objects.annotate(
         posts_count=Count('owner__post', distinct=True),
+        recommendations_count=Count('owner__recommendation', distinct=True),
+        events_count=Count('owner__event', distinct=True),
         followers_count=Count('owner__followed', distinct=True),
         following_count=Count('owner__following', distinct=True),
     ).order_by('-creation_date')
@@ -29,6 +31,8 @@ class ProfileList(generics.ListAPIView):
     ]
     ordering_fields = [
         'posts_count',
+        'recommendations_count',
+        'events_count',
         'followers_count',
         'following_count',
         'owner__following__creation_date',
