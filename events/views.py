@@ -44,4 +44,4 @@ class EventDetail(generics.RetrieveUpdateDestroyAPIView):
     """
     serializer_class = EventSerializer
     permission_classes = [IsOwnerOrReadOnly]
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by('-creation_date')
