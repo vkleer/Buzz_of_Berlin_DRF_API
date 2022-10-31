@@ -28,11 +28,15 @@ class RecommendationList(generics.ListCreateAPIView):
         'owner__profile',
     ]
     search_fields = [
-        'comments_count',
         'owner__username',
         'title',
+        'location_name',
+        'district',
+        'entry_fee',
+        'price',
     ]
     ordering_fields = [
+        'comments_count'
         'likes_count',
         'likes__creation_date',
     ]

@@ -30,6 +30,7 @@ class PostList(generics.ListCreateAPIView):
     search_fields = [
         'owner__username',
         'title',
+        'district',
     ]
     ordering_fields = [
         'comments_count',

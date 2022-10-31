@@ -14,11 +14,20 @@ class EventList(generics.ListCreateAPIView):
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     queryset = Event.objects.all()
     filter_backends = [
+        filters.SearchFilter,
         DjangoFilterBackend,
     ]
     filterset_fields = [
         'owner__followed__owner__profile',
         'owner__profile',
+    ]
+    search_fields = [
+        'owner__username',
+        'title',
+        'district',
+        'location_name',
+        'date',
+        'ticket_price',
     ]
 
     def perform_create(self, serializer):
