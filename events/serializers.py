@@ -1,5 +1,6 @@
-from rest_framework import serializers
+from rest_framework import serializers, fields
 from .models import Event
+from profiles.models import Profile
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -47,5 +48,10 @@ class EventSerializer(serializers.ModelSerializer):
         fields = [
             'id', 'owner', 'creation_date', 'updated_date', 'title',
             'district', 'date', 'start_time', 'ticket_price', 'location_name',
-            'content', 'image', 'is_owner', 'profile_id', 'profile_image',
+            'music', 'sports', 'languages', 'content', 'image', 'is_owner',
+            'profile_id', 'profile_image',
         ]
+
+    languages = fields.MultipleChoiceField(choices=Profile.Languages)
+    music = fields.MultipleChoiceField(choices=Profile.Music)
+    sports = fields.MultipleChoiceField(choices=Profile.Sports)

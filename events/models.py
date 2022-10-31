@@ -1,7 +1,9 @@
 import datetime
+from django.conf import settings
 from django.db import models
 from django.core.validators import MinValueValidator, MaxValueValidator
 from django.contrib.auth.models import User
+from multiselectfield import MultiSelectField
 from profiles.models import Profile
 from recommendations.models import Recommendation
 
@@ -17,6 +19,9 @@ class Event(models.Model):
     """
     Districts = Profile.Districts
     EntryFees = Recommendation.EntryFees
+    Music = Profile.Music
+    Sports = Profile.Sports
+    Languages = Profile.Languages
 
     owner = models.ForeignKey(User, on_delete=models.CASCADE)
     creation_date = models.DateTimeField(auto_now_add=True)
@@ -33,6 +38,18 @@ class Event(models.Model):
     district = models.CharField(
         max_length=50,
         choices=Districts.choices
+    )
+    music = MultiSelectField(
+        choices=Music.choices,
+        blank=True
+    )
+    sports = MultiSelectField(
+        choices=Sports.choices,
+        blank=True
+    )
+    languages = MultiSelectField(
+        choices=Languages.choices,
+        blank=True
     )
     location_name = models.CharField(max_length=255)
     content = models.TextField(blank=True)
