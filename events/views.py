@@ -12,7 +12,7 @@ class EventList(generics.ListCreateAPIView):
     """
     serializer_class = EventSerializer
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
-    queryset = Event.objects.all()
+    queryset = Event.objects.all().order_by('-creation_date')
     filter_backends = [
         filters.SearchFilter,
         DjangoFilterBackend,
