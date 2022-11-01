@@ -24,10 +24,79 @@ The back end of this project cover one large user story:
 
 ## Database
 
-The following models were created to represent the database model structure of the application:
-<img src="docs/database/">
+The following models were created to form the database for the API:
+<details><summary>Screenshot of database diagram</summary>
+    <img src="docs/diagram/database-diagram.png">
+</details>
 
-### Model
+### User model
+The User model comes from the Allauth library and contains information about the user.
+
+### Follower model
+Contains the following fields:
+- owner
+    - One-to-one relation with the id field of the User model
+- name
+- followed
+    - One-to-one relation with the id field of the User model
+- creation_date
+
+### Profile model
+Contains the following fields:
+- owner
+    - One-to-one relation with the id field of the User model
+- name
+- description
+- creation_date
+- updated_date
+- district
+- languages
+- music
+- sports
+- image
+
+### Post model
+Contains the following fields:
+- owner
+    - One-to-one relation with the id field of the User model
+- creation_date
+- updated_date
+- title
+- caption
+- district
+- image
+
+### Recommendation model
+Contains the following fields:
+- owner
+    - One-to-one relation with the id field of the User model
+- creation_date
+- updated_date
+- title
+- content
+- district
+- location_name
+- entry_fee
+- price
+- image
+
+### Event model
+Contains the following fields:
+- owner
+    - One-to-one relation with the id field of the User model
+- creation_date
+- updated_date
+- title
+- content
+- district
+- location_name
+- date
+- start_time
+- ticket_price
+- languages
+- music
+- sports
+- image
 
 ## Technologies Used
 
