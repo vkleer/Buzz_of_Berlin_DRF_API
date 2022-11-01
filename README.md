@@ -258,8 +258,7 @@ This API has been deployed using Heroku with the following steps:
 27. Wait for the app to build and be deployed. Once the app is ready, a message will be displayed saying 'App was successfully deployed' along with a button which takes you to your newly deployed React app
 
 ## Credits
-
-The assets were created by the developer.
+The default image and default profile and were created by the developer.
 
 ### Code
 - The DRF API for 'Buzz of Berlin' is the result of building on the Django REST API walkthrough project that was provided by Code Institute. Though it was used as a foundation, a bunch of extra apps and models have been added to make the back end of this project truly my own.
