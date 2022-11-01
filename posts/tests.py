@@ -49,7 +49,7 @@ class PostListViewTests(APITestCase):
 class PostDetailViewTests(APITestCase):
     def setUp(self):
         """
-        Runs before every test, creating two test users
+        Runs before every test, creating two test users and two test Posts
         """
         john = User.objects.create_user(
             username='John', password='Trl1209@!3a'
