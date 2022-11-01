@@ -38,21 +38,6 @@ The following models were created to represent the database model structure of t
 
 ### Libraries & Tools
 
-- [**APITestCase**](https://www.django-rest-framework.org/api-guide/testing/) - Django Rest Framework APITestCase was used for automated testing
-- [**Cloudinary**](https://cloudinary.com/) to store static files and serve them to Heroku
-- [**Coverage**](https://coverage.readthedocs.io/en/6.4.4/) used to produce automated testing report
-- [Dbdiagram.io](https://dbdiagram.io/home) used for the database schema diagram
-- [**Git**](https://git-scm.com/) was used for version control via Gitpod terminal to push the code to GitHub
-- [**GitHub**](https://github.com/) was used as a remote repository to store project code
-- [**Gitpod**)](https://gitpod.io/workspaces) - a virtual IDE workspace used to build this site
-- [Heroku Platform](https://id.heroku.com/login) was used to deploy the project into live environment
-- [Django REST Framework](https://www.django-rest-framework.org/) was used to build the back-end API
-- [Django AllAuth](https://django-allauth.readthedocs.io/en/latest/index.html) was used for user authentication
-- [Gunicorn](https://gunicorn.org/) was used for deploying the project to Heroku
-- [Pillow](https://pillow.readthedocs.io/en/stable/) was used for image processing and validation
-- [Psycopg2](https://www.psycopg.org/docs/) was used as a PostgreSQL database adapter for Python
-- [PostgreSQL](https://www.postgresql.org/) – deployed project on Heroku uses a PostgreSQL database
-
 ## Validation
 
 ### PEP8 Validation
@@ -125,11 +110,11 @@ This API has been deployed using Heroku with the following steps:
         ]
     ```
 13. Create a Profile file at the root of your project and add the following commands to it:
-   ```
-   release: python manage.py makemigrations && python manage.py migrate
-   web: gunicorn PROJECT_NAME.wsgi
-   ```
-   The first line ensures that our migrations are made and applied to the Heroku postgres database, and the second line makes sure Heroku serves our app using gunicorn
+    ```
+    release: python manage.py makemigrations && python manage.py migrate
+    web: gunicorn PROJECT_NAME.wsgi
+    ```
+    The first line ensures that our migrations are made and applied to the Heroku postgres database, and the second line makes sure Heroku serves our app using gunicorn
 14. In your settings file, set the 'ALLOWED_HOSTS' variable to the following:
     ```
     ALLOWED_HOSTS = [
