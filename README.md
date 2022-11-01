@@ -40,9 +40,12 @@ The following models were created to represent the database model structure of t
 
 ## Validation
 
-### PEP8 Validation
-[PEP8](http://pep8online.com/) Validation Service was used to check the code for PEP8 requirements. All the code passes with no errors or warnings.
+### Pep8 Validation
+The Python code has been validated using [Pep8 Validation Service](http://pep8online.com/) - no errors or warnings were found.
 
+<details><summary>Screenshot of Pep8 validation</summary>
+    <img src="docs/validation/pep8-validation.JPG">
+</details>
 
 ## Testing
 
