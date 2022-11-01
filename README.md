@@ -164,6 +164,16 @@ Event | Update and/or delete event | An event can be edited and/or event | Works
 
 
 ### Automated testing
+Automated testing was carried out using the DRF APITestCase, which is similar to Django's TestCase. The screenshots that I have added below are from running the tests with the coverage tool and creating a report using the coverage tool.
+
+<details><summary>Screenshot of profiles and posts coverage test</summary>
+    <img src="docs/testing/automated/coverage-tests.JPG">
+</details>
+
+<details><summary>Screenshot of global app coverage report</summary>
+    <img src="docs/testing/automated/coverage-report-1.JPG">
+    <img src="docs/testing/automated/coverage-report-2.JPG">
+</details>
 
 ## Deployment
 
