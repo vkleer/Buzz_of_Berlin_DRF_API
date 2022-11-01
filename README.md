@@ -19,8 +19,7 @@ This repository contains the API that was built using the Django REST Framework 
 ## User Stories
 
 The back end of this project cover one large user story:
-- As an admin, I want to be able to edit and delete all users' posts, recommendations, events, comments and likes, so I can moderate the application and remove any inappropriate content if needed
-
+- As an admin, I want to be able to edit and delete all users' profiles, posts, recommendations and events, so I can moderate the application and remove any inappropriate content if needed
 
 ## Database
 
@@ -101,11 +100,24 @@ Contains the following fields:
 ## Technologies Used
 
 ### Languages & Frameworks
-
-- Python
-- Django
+- [**Python 3.8.11**](https://www.python.org/)
+- [**Django 3.2.15**](https://www.djangoproject.com/)
 
 ### Libraries & Tools
+- [**Git**](https://git-scm.com/) was used for version control
+- [**GitHub**](https://github.com/) was used as a remote repository to store the all project files
+- [**Gitpod**](https://gitpod.io/) was used as the IDE to write the project code
+- [**Heroku**](https://dashboard.heroku.com/) was used to deploy the project
+- [**PostgreSQL**](https://www.postgresql.org/) was used to store the project data, specifically the 'Heroku Postgres' add-on
+- [**Psycopg2**](https://www.psycopg.org/docs/) was used as the PostgreSQL database adapter for Python
+- [**Google Fonts**](http://pep8online.com/) was used to supply the fonts for my project
+- [**Font Awesome**](https://fontawesome.com/) was used to supply the icons for my project
+- [**PEP8**](http://pep8online.com/) was used to validate my Python code
+- [**Coverage**](https://github.com/nedbat/coveragepy) was used to produce reports on my python unit tests
+- [**Cloudinary**](https://cloudinary.com/) was used to store static files
+- [**Allauth**](https://github.com/pennersr/django-allauth) was used to take care of the accounts in the project
+- [**DRF (Django Rest Framework)**](https://www.django-rest-framework.org/) was used to build the API
+- [**Gunicorn**](https://gunicorn.org/) was used to deploy the project to Heroku
 
 ## Validation
 
@@ -118,21 +130,38 @@ The Python code has been validated using [Pep8 Validation Service](http://pep8on
 
 ## Testing
 
-The following tests were carried out on the app:
-1. Manual testing of user stories
-2. Automated testing
+### Manual Testing - User Story
 
-### Manual Testing - User Stories
+- As an admin, I want to be able to edit and delete all users' profiles, posts, recommendations and events, so I can moderate the application and remove any inappropriate content if needed
 
-1. story
+**Test** | **Action** | **Expected Result** | **Actual Result**
+-------- | ------------------- | ------------------- | -----------------
+User | Update and/or delete user | A user can be updated and/or deleted | Works as expected
+Profile | Update and/or delete profile | A users' profile can be updated and/or deleted | Works as expected
+Post | Update and/or delete post | A post can be edited and/or deleted | Works as expected
+Recommendation | Update and/or delete recommendation | A recommendation can be edited and/or deleted | Works as expected
+Event | Update and/or delete event | An event can be edited and/or event | Works as expected
 
-| **Feature** | **Action** | **Expected Result** | **Actual Result** |
-|-------------|------------|---------------------|-------------------|
-| feature | action | expected | result |
-
-<details><summary>Supporting Screenshots - User Story 1</summary>
-    <img src="docs/testing/user-story-testing/user-stories-01.png">
+<details><summary>Supporting GIF - Test user</summary>
+    <img src="docs/testing/manual/test-users.gif">
 </details>
+
+<details><summary>Supporting GIF - Test profile</summary>
+    <img src="docs/testing/manual/test-profiles.gif">
+</details>
+
+<details><summary>Supporting GIF - Test post</summary>
+    <img src="docs/testing/manual/test-posts.gif">>
+</details>
+
+<details><summary>Supporting GIF - Test recommendation</summary>
+    <img src="docs/testing/manual/test-recommendations.gif">
+</details>
+
+<details><summary>Supporting GIF - Test event</summary>
+    <img src="docs/testing/manual/test-events.gif">
+</details>
+
 
 ### Automated testing
 
