@@ -1,108 +1,168 @@
-![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
+# Buzz of Berlin DRF API
+(Developer: Vilayat Kleer)
 
-Welcome Vilayat Kleer,
+This repository contains the API that was built using the Django REST Framework for the Buzz of Berlin front end application.
 
-This is the Code Institute student template for Gitpod. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions.
+#### [View the live API](https://buzz-of-berlin-drf-api.herokuapp.com/)
+#### [View the live front end application](https://ci-pp5-buzz-of-berlin.herokuapp.com/)
+#### [View the front end repository](https://github.com/vkleer/ci-pp5-buzz-of-berlin)
 
-You can safely delete this README.md file, or change it for your own project. Please do read it at least once, though! It contains some important information about Gitpod and the extensions we use. Some of this information has been updated since the video content was created. The last update to this file was: **September 1, 2021**
+## Table of Contents
+  - [User Stories](#user-stories)
+  - [Database](#database)
+  - [Technologies Used](#technologies-used)
+  - [Validation](#validation)
+  - [Testing](#testing)
+  - [Deployment](#deployment)
+  - [Credits](#credits)
 
-## Gitpod Reminders
+## User Stories
 
-To run a frontend (HTML, CSS, Javascript only) application in Gitpod, in the terminal, type:
+The back end of this project cover one large user story:
+- As an admin, I want to be able to edit and delete all users' posts, recommendations, events, comments and likes, so I can moderate the application and remove any inappropriate content if needed
 
-`python3 -m http.server`
 
-A blue button should appear to click: _Make Public_,
+## Database
 
-Another blue button should appear to click: _Open Browser_.
+The following models were created to represent the database model structure of the application:
+<img src="docs/database/">
 
-To run a backend Python file, type `python3 app.py`, if your Python file is named `app.py` of course.
+### Model
 
-A blue button should appear to click: _Make Public_,
+## Technologies Used
 
-Another blue button should appear to click: _Open Browser_.
+### Languages & Frameworks
 
-In Gitpod you have superuser security privileges by default. Therefore you do not need to use the `sudo` (superuser do) command in the bash terminal in any of the lessons.
+- Python
+- Django
 
-To log into the Heroku toolbelt CLI:
+### Libraries & Tools
 
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In Gitpod, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
+- [**APITestCase**](https://www.django-rest-framework.org/api-guide/testing/) - Django Rest Framework APITestCase was used for automated testing
+- [**Cloudinary**](https://cloudinary.com/) to store static files and serve them to Heroku
+- [**Coverage**](https://coverage.readthedocs.io/en/6.4.4/) used to produce automated testing report
+- [Dbdiagram.io](https://dbdiagram.io/home) used for the database schema diagram
+- [**Git**](https://git-scm.com/) was used for version control via Gitpod terminal to push the code to GitHub
+- [**GitHub**](https://github.com/) was used as a remote repository to store project code
+- [**Gitpod**)](https://gitpod.io/workspaces) - a virtual IDE workspace used to build this site
+- [Heroku Platform](https://id.heroku.com/login) was used to deploy the project into live environment
+- [Django REST Framework](https://www.django-rest-framework.org/) was used to build the back-end API
+- [Django AllAuth](https://django-allauth.readthedocs.io/en/latest/index.html) was used for user authentication
+- [Gunicorn](https://gunicorn.org/) was used for deploying the project to Heroku
+- [Pillow](https://pillow.readthedocs.io/en/stable/) was used for image processing and validation
+- [Psycopg2](https://www.psycopg.org/docs/) was used as a PostgreSQL database adapter for Python
+- [PostgreSQL](https://www.postgresql.org/) – deployed project on Heroku uses a PostgreSQL database
 
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with _Regenerate API Key_.
+## Validation
 
-------
+### PEP8 Validation
+[PEP8](http://pep8online.com/) Validation Service was used to check the code for PEP8 requirements. All the code passes with no errors or warnings.
 
-## Release History
 
-We continually tweak and adjust this template to help give you the best experience. Here is the version history:
+## Testing
 
-**September 1 2021:** Remove `PGHOSTADDR` environment variable.
+The following tests were carried out on the app:
+1. Manual testing of user stories
+2. Automated testing
 
-**July 19 2021:** Remove `font_fix` script now that the terminal font issue is fixed.
+### Manual Testing - User Stories
 
-**July 2 2021:** Remove extensions that are not available in Open VSX.
+1. story
 
-**June 30 2021:** Combined the P4 and P5 templates into one file, added the uptime script. See the FAQ at the end of this file.
+| **Feature** | **Action** | **Expected Result** | **Actual Result** |
+|-------------|------------|---------------------|-------------------|
+| feature | action | expected | result |
 
-**June 10 2021:** Added: `font_fix` script and alias to fix the Terminal font issue
+<details><summary>Supporting Screenshots - User Story 1</summary>
+    <img src="docs/testing/user-story-testing/user-stories-01.png">
+</details>
 
-**May 10 2021:** Added `heroku_config` script to allow Heroku API key to be stored as an environment variable.
+### Automated testing
 
-**April 7 2021:** Upgraded the template for VS Code instead of Theia.
+## Deployment
 
-**October 21 2020:** Versions of the HTMLHint, Prettier, Bootstrap4 CDN and Auto Close extensions updated. The Python extension needs to stay the same version for now.
+### Heroku Deployment
+This API has been deployed using Heroku with the following steps:
 
-**October 08 2020:** Additional large Gitpod files (`core.mongo*` and `core.python*`) are now hidden in the Explorer, and have been added to the `.gitignore` by default.
+1. Login to [Heroku](https://id.heroku.com/login)
+1. Go to your Heroku dashboard
+3. In the top-right corner, click on the 'New' button, followed by the 'Create a new app' button
+4. Enter an app name (it has to be unique) and choose your region under the 'Choose a region' dropdown menu.
+5. Click on the 'Create app' button
+6. Click on the 'Resources' tab and search for 'Postgres' in Add-ons section and add a 'Heroku Postgres' database to the app.
+7. In your project, install the 'dj-database-url' and 'psycopg2' libraries using the following command:
+    ```
+    pip3 install dj_database_url psycopg2
+    ```
+8. In your settings.py file, import 'dj_database_url'
+9. In your settings.py file, add the following to your 'DATABASES' variable to keep the development and production  databases separate:
+    ```
+    DATABASES = {
+        'default': ({
+            'ENGINE': 'django.db.backends.sqlite3',
+            'NAME': BASE_DIR / 'db.sqlite3',
+        } if 'DEV' in os.environ else dj_database_url.parse(
+            os.environ.get('DATABASE_URL')
+        ))
+    }
+    ```
+10. In your project, install the 'django-cors-headers' and 'gunicorn' libraries using the following command:
+    ```
+    pip3 install django-core-headers gunicorn
+    ```
+11. In your settings.py file, add the django-cors-headers middleware class: 
+    ```
+    'corsheaders.middleware.CorsMiddleware'
+    ```
+12. In your settings.py, change the 'CORS_ALLOWED_ORIGIN_REGEXES' variable to the following to match your workspace URL:
+    ```
+    if 'CLIENT_ORIGIN_DEV' in os.environ:
+        extracted_url = re.match(
+            r'^.+-', os.environ.get('CLIENT_ORIGIN_DEV', ''), re.IGNORECASE
+        ).group(0)
+        CORS_ALLOWED_ORIGIN_REGEXES = [
+            rf"{extracted_url}(eu|us)\d+\w\.gitpod\.io$",
+        ]
+    ```
+13. Create a Profile file at the root of your project and add the following commands to it:
+   ```
+   release: python manage.py makemigrations && python manage.py migrate
+   web: gunicorn PROJECT_NAME.wsgi
+   ```
+   The first line ensures that our migrations are made and applied to the Heroku postgres database, and the second line makes sure Heroku serves our app using gunicorn
+14. In your settings file, set the 'ALLOWED_HOSTS' variable to the following:
+    ```
+    ALLOWED_HOSTS = [
+      os.environ.get('ALLOWED_HOST'),
+      'localhost',
+    ]
+    ``
+15. In your settings.py file, create the 'JWT_AUTH_SAMESITE' variable and set it equal to 'None' to allow the front end app and API to be deployed separately
+16. In your env.py file, add any remaining environment variables, like your 'SECRET_KEY'. Be sure to add your env.py file to your .gitignore file!
+17. In your settings.py file, make any adjustments to your variables, like your 'SECRET_KEY':
+    ```
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    ```
+18. In your settings.py file, change the 'DEBUG' variable to the following:
+    ```
+    DEBUG = 'DEV' in os.environ
+    ```
+19. Update the requirements.txt file to ensure your Heroku deployment won't fail:
+    ```
+    pip3 freeze > requirements.txt
+    ```
+20. Add, commit and push your changes to GitHub
+21. Back in your Heroku API page, click on the 'Settings' tab and create the environment variables you created in your env.py file under 'Config Vars'
+22. Click on the 'Deploy' tab
+23. Under 'Deployment method', click on 'Github'. You can then search for your repository under 'Search for a repository to connect to'
+24. Click on the 'Connect' button to connect your repository
+25. On the next page, under 'Choose a branch to deploy' you can choose the branch you want to deploy your app from
+26. Either click on the 'Enable Automatic Deploys' button under 'Automatic deploys' to have the app deploy automatically on each push you make to the branch, or click on the 'Deploy Branch' button under 'Manual deploy'
+27. Wait for the app to build and be deployed. Once the app is ready, a message will be displayed saying 'App was successfully deployed' along with a button which takes you to your newly deployed React app
 
-**September 22 2020:** Gitpod occasionally creates large `core.Microsoft` files. These are now hidden in the Explorer. A `.gitignore` file has been created to make sure these files will not be committed, along with other common files.
+## Credits
 
-**April 16 2020:** The template now automatically installs MySQL instead of relying on the Gitpod MySQL image. The message about a Python linter not being installed has been dealt with, and the set-up files are now hidden in the Gitpod file explorer.
+The assets were created by the developer.
 
-**April 13 2020:** Added the _Prettier_ code beautifier extension instead of the code formatter built-in to Gitpod.
-
-**February 2020:** The initialisation files now _do not_ auto-delete. They will remain in your project. You can safely ignore them. They just make sure that your workspace is configured correctly each time you open it. It will also prevent the Gitpod configuration popup from appearing.
-
-**December 2019:** Added Eventyret's Bootstrap 4 extension. Type `!bscdn` in a HTML file to add the Bootstrap boilerplate. Check out the <a href="https://github.com/Eventyret/vscode-bcdn" target="_blank">README.md file at the official repo</a> for more options.
-
-------
-
-## FAQ about the uptime script
-
-**Why have you added this script?**
-
-It will help us to calculate how many running workspaces there are at any one time, which greatly helps us with cost and capacity planning. It will help us decide on the future direction of our cloud-based IDE strategy.
-
-**How will this affect me?**
-
-For everyday usage of Gitpod, it doesn’t have any effect at all. The script only captures the following data:
-
-- An ID that is randomly generated each time the workspace is started.
-- The current date and time
-- The workspace status of “started” or “running”, which is sent every 5 minutes.
-
-It is not possible for us or anyone else to trace the random ID back to an individual, and no personal data is being captured. It will not slow down the workspace or affect your work.
-
-**So….?**
-
-We want to tell you this so that we are being completely transparent about the data we collect and what we do with it.
-
-**Can I opt out?**
-
-Yes, you can. Since no personally identifiable information is being captured, we'd appreciate it if you let the script run; however if you are unhappy with the idea, simply run the following commands from the terminal window after creating the workspace, and this will remove the uptime script:
-
-```
-pkill uptime.sh
-rm .vscode/uptime.sh
-```
-
-**Anything more?**
-
-Yes! We'd strongly encourage you to look at the source code of the `uptime.sh` file so that you know what it's doing. As future software developers, it will be great practice to see how these shell scripts work.
-
----
-
-Happy coding!
+### Code
+- The DRF API for 'Buzz of Berlin' is the result of building on the Django REST API walkthrough project that was provided by Code Institute. Though it was used as a foundation, a bunch of extra apps and models have been added to make the back end of this project truly my own.
