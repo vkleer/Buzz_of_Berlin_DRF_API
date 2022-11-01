@@ -3,7 +3,7 @@
 
 This repository contains the API that was built using the Django REST Framework for the Buzz of Berlin front end application.
 
-#### [View the live API](https://buzz-of-berlin-drf-api.herokuapp.com/)
+#### [View the live back end API](https://buzz-of-berlin-drf-api.herokuapp.com/)
 #### [View the live front end application](https://ci-pp5-buzz-of-berlin.herokuapp.com/)
 #### [View the front end repository](https://github.com/vkleer/ci-pp5-buzz-of-berlin)
 
@@ -113,6 +113,7 @@ Contains the following fields:
 - [**Google Fonts**](http://pep8online.com/) was used to supply the fonts for my project
 - [**Font Awesome**](https://fontawesome.com/) was used to supply the icons for my project
 - [**PEP8**](http://pep8online.com/) was used to validate my Python code
+- [**APITestCase**](https://www.django-rest-framework.org/api-guide/testing/) was used for automated testing
 - [**Coverage**](https://github.com/nedbat/coveragepy) was used to produce reports on my python unit tests
 - [**Cloudinary**](https://cloudinary.com/) was used to store static files
 - [**Allauth**](https://github.com/pennersr/django-allauth) was used to take care of the accounts in the project
